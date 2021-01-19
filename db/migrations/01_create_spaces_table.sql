@@ -1,1 +1,1 @@
-CREATE TABLE spaces (id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(300), price INTEGER(4), requested VARCHAR(5), confirmed VARCHAR(5));
+CREATE TABLE spaces (id SERIAL PRIMARY KEY, name VARCHAR(60), description VARCHAR(300), price INTEGER, requested VARCHAR(5), confirmed VARCHAR(5));
