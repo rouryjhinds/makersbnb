@@ -1,6 +1,6 @@
 require 'sinatra/base'
 
-class MakersBnb < Sinatra::base
+class MakersBnb < Sinatra::Base
   get '/' do
     'homepage'
   end
