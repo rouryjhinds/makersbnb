@@ -1,0 +1,9 @@
+<h1> your spaces </h1>
+<div  class="text-center">
+  <% @space.each do |space| %>
+    <h3><%= space.id %></h3>
+    <p><%= space.name %></p>
+    <p><%= space.description %></p>
+    <p><b>Price per night:</b> £<%= space.price %></p>
+  <% end %>
+</div>
