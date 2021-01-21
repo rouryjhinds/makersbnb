@@ -1,21 +1,23 @@
 require 'sinatra/base'
 
 class MakersBnb < Sinatra::Base
+  enable :sessions
 
   get '/' do
     'homepage'
   end
 
-  get '/spaces/new' do
+  get '/spaces/availability' do
     @start_date
     @end_date
-    erb :'new_spaces'
+    erb :'availability'
   end
 
-  post '/my-spaces' do
+  post '/spaces' do
+    # Booking.create(start_date: params[:start_date], start_date: params[:end_date], )
     @start_date = params[:start_date]
     @end_date = params[:end_date]
-    erb :'my_spaces'
+    erb :'spaces'
   end
 
   run! if app_file == $0

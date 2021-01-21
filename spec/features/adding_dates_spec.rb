@@ -1,6 +1,6 @@
 feature 'Adding dates' do
   scenario 'updates space details with available dates' do
-    visit('/spaces/new')
+    visit('/spaces/availability')
 
     fill_in :start_date, with: "2021-01-14"
     fill_in :end_date, with: "2021-02-17"
