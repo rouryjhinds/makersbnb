@@ -11,6 +11,7 @@ class Booking
     @start_date = start_date
     @end_date = end_date
     @spaces_id = spaces_id
+    @requested = true
   end
 
   def self.create(start_date:, end_date:, spaces_id:)
