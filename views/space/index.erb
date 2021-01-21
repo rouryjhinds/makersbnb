@@ -1,0 +1,16 @@
+<h1> your spaces </h1>
+<% @space.each do |space| %>
+  <div  class="text-center">
+    <h3><%= space.id %></h3>
+    <p><%= space.name %></p>
+    <p><%= space.description %></p>
+    <p><b>Price per night:</b> £<%= space.price %></p>
+
+    <form action="/space/<%= space.id %>/availability" method="get">
+      <input type="hidden" name="spaces_id" value="<%= space.id %>" />
+      <input type="submit" value="Add unavailable dates"/>
+    </form>
+  </div>
+<% end %>
+
+
