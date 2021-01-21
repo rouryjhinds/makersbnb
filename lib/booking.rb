@@ -26,4 +26,18 @@ class Booking
 
   end
 
+  def self.all
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makers_bnb_test')
+    else
+      connection = PG.connect(dbname: 'makers_bnb')
+    end
+
+    result = connection.exec("SELECT * FROM bookings")
+    result.map do |booking|
+      Booking.new(id: booking['id'], start_date: booking['start_date'], end_date: booking['end_date'], spaces_id: booking['spaces_id'])
+    end
+
+  end
+
 end

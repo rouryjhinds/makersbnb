@@ -2,6 +2,7 @@
 
 <form action="/spaces" method="post">
   <label for="start_date">Start Date:</label>
+  <input type="hidden" name="spaces_id" value="<%= @space.id %>" />
   <input type="date" id="start_date" name="start_date">
   <label for="end_date">End Date:</label>
   <input type="date" id="end_date" name="end_date">

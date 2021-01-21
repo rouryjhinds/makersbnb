@@ -1,6 +1,6 @@
 require 'booking'
 
-# require_relative 'space'
+require 'space'
 
 describe 'Booking' do
   # it 'is initially requested' do
@@ -42,39 +42,40 @@ describe 'Booking' do
       expect(booking_1.id).to eq first_id_result['id']
     end 
     
-    # it 'takes in the id of the space and is set to spaces_id' do
-    #   connection = PG.connect(dbname: 'makers_bnb_test')
-    #   space_1 = Space.create(name: "bungaloo", description: "cozy", price: 100)
-    #   booking_1 = Booking.create(start_date: "2021-01-14", end_date: "2021-02-17", spaces_id: "#{space_1.id}")
-      
-    #   id_result = connection.query("SELECT * FROM bookings WHERE id = #{booking_1.id};")
-    #   first_id_result = id_result.first
+    it 'takes in the id of the space and is set to spaces_id' do
+      connection = PG.connect(dbname: 'makers_bnb_test')
+      space_1 = Space.create(name: "bungaloo", description: "cozy", price: 100)
 
-    #   expect(booking_1.spaces_id).to eq space_1.id 
-    # end
+      booking_1 = Booking.create(start_date: "2021-01-14", end_date: "2021-02-17", spaces_id: "#{space_1.id}")
+      
+      id_result = connection.query("SELECT * FROM bookings WHERE id = #{booking_1.id};")
+      first_id_result = id_result.first
+
+      expect(booking_1.spaces_id).to eq space_1.id 
+    end
   end
 
-  # describe '.all' do
-  #   it 'returns all bookings' do
-  #     connection = PG.connect(dbname: 'makers_bnb_test')
+  describe '.all' do
+    it 'returns all bookings' do
+      connection = PG.connect(dbname: 'makers_bnb_test')
 
-  #     space_1 = Space.create(name: "bungaloo", description: "cozy", price: 100)
-  #     space_2 = Space.create(name: "cottage", description: "small", price: 200)
+      space_1 = Space.create(name: "bungaloo", description: "cozy", price: 100)
+      space_2 = Space.create(name: "cottage", description: "small", price: 200)
 
 
-  #     booking_1 = Booking.create(start_date: "2021-01-14", end_date: "2021-02-17", spaces_id: "#{space_1.id}")
-  #     Booking.create(start_date: "2021-02-14", end_date: "2021-03-17", spaces_id: "#{space_2.id}")
-  #     Booking.create(start_date: "2021-03-14", end_date: "2021-04-17", spaces_id: "#{space_2.id}")
-  #     bookings = Booking.all
+      booking_1 = Booking.create(start_date: "2021-01-14", end_date: "2021-02-17", spaces_id: "#{space_1.id}")
+      Booking.create(start_date: "2021-02-14", end_date: "2021-03-17", spaces_id: "#{space_2.id}")
+      Booking.create(start_date: "2021-03-14", end_date: "2021-04-17", spaces_id: "#{space_2.id}")
+      bookings = Booking.all
 
-  #     expect(bookings.length).to eq 3
-  #     expect(bookings.first).to be_a Booking
-  #     expect(bookings.first.id).to eq booking_1.id
-  #     expect(bookings.first.start_date).to eq "2021-01-14"
-  #     expect(bookings.first.end_date).to eq "2021-02-17"
-  #     expect(bookings.first.spaces_id).to eq space_1.id
-  #   end
-  # end
+      expect(bookings.length).to eq 3
+      expect(bookings.first).to be_a Booking
+      expect(bookings.first.id).to eq booking_1.id
+      expect(bookings.first.start_date).to eq "2021-01-14"
+      expect(bookings.first.end_date).to eq "2021-02-17"
+      expect(bookings.first.spaces_id).to eq space_1.id
+    end
+  end
 
   #   describe '.confirm_update' do
   #   it 'updates the booking confirmation to be true' do
