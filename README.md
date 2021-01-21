@@ -39,3 +39,25 @@ I would like to approve a new request for a space
 As a user, 
 So that I don't book a space that's unavailable, 
 I would like to only see available dates (that are not confirmed)
+
+# How to connect to the databases
+1. Connect to psql
+
+2. Create the database using the psql command CREATE DATABASE makers_bnb;
+
+3. Connect to the database using the pqsl command \c makers_bnb; 
+
+4. Run the sql query we have saved in the file 01_create_spaces_table.sql
+
+5. Run the sql query we have saved in the file 02_create_bookings_table.sql
+
+
+1. Connect to psql
+
+2. Create the database using the psql command CREATE DATABASE makers_bnb_test;
+
+3. Connect to the database using the pqsl command \c makers_bnb_test;
+
+4. Run the sql query we have saved in the file 01_create_spaces_table.sql
+
+5. Run the sql query we have saved in the file 02_create_bookings_table.sql

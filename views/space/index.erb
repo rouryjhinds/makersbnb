@@ -1,9 +1,22 @@
 <h1> your spaces </h1>
-<div  class="text-center">
-  <% @space.each do |space| %>
+<% @space.each do |space| %>
+  <div  class="text-center" style="background-color: #dceff5;">
     <h3><%= space.id %></h3>
     <p><%= space.name %></p>
     <p><%= space.description %></p>
     <p><b>Price per night:</b> £<%= space.price %></p>
-  <% end %>
-</div>
+
+    <% @booking.each do |booking| %>
+      <% if space.id == booking.spaces_id %>
+        <p>Unavailable between <%= booking.start_date %> and  <%= booking.end_date %></p>
+      <% end %>
+    <% end %>
+
+    <form action="/space/<%= space.id %>/availability" method="get">
+      <input type="hidden" name="spaces_id" value="<%= space.id %>" />
+      <input type="submit" value="Add unavailable dates"/>
+    </form>
+  </div>
+<% end %>
+
+
