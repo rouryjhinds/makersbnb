@@ -36,5 +36,21 @@ class MakersBnb < Sinatra::Base
     erb :'space/new'
   end
 
+  get '/booking' do
+    erb :'bookings/index'
+  end
+  
+  get '/booking/availability' do
+    @space = Space.all
+    @booking_date = params[:date]
+    erb :'bookings/availability'
+  end
+  
+  get '/booking/confirmation' do
+    @booking_id = params[:id]
+    erb :'bookings/confirmation'
+  end
+
   run! if app_file == $0
 end
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/booking_availability_style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">  
+</head>
+<body>
+  <h1> Here are our available spaces </h1>
+  <h2> Please choose where you would like to stay </h2>
+
+
+<div  class="container">
+  <% @space.each do |space| %>
+    <form action="/booking/confirmation" method="get">
+      <p><%= space.name %></p>
+      <img src="//placehold.it/800x600&text=Hotel">
+      <p><%= space.description %></p>
+      <p><b>Price per night:</b> £<%= space.price %></p>
+      <p><input type="submit" id="button" value="Request space" /></p>
+    </form>
+  <% end %>
+</div>
+</body>
+</html>

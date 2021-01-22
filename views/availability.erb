@@ -1,11 +1,24 @@
-<h4>Enter unavailable dates for your Space</h4>
-
-<form action="/spaces" method="post">
-  <label for="start_date">Start Date:</label>
-  <input type="hidden" name="spaces_id" value="<%= @space.id %>" />
-  <input type="date" id="start_date" name="start_date">
-  <label for="end_date">End Date:</label>
-  <input type="date" id="end_date" name="end_date">
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/space_availability_style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">  
+</head>
+<body>
+<h2>Enter unavailable dates for your Space</h2>
+<div>
+  <form action="/spaces" method="post">
+    <label for="start_date">Start Date:</label>
+    <input type="hidden" name="spaces_id" value="<%= @space.id %>" />
+    <input type="date" id="start_date" name="start_date">
+    <label for="end_date">End Date:</label>
+    <input type="date" id="end_date" name="end_date">
+    <input type="submit" id="button" value="Submit">
+  </form>
+</div>
+</body>
+</html>
 

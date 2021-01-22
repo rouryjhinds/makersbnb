@@ -1,5 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/space_new_style.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">  
+</head>
+<body>
 <h1 class="text-center">List a new space</h1>
-
+<div class="container">
 <form action="/space" method="post" enctype="multipart/form-data" class="big_box text-center">
   <label for="name">
     Title <br>
@@ -13,5 +23,8 @@
     Price per Night <br>
     <input name="price" type="number">
   </label><br />
-  <input type="submit" value="Add">
+  <input type="submit" id="button" value="Add">
 </form>
+</div>
+</body>
+</html>
